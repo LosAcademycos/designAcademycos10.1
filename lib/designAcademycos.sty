@@ -1,0 +1,199 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{designAcademycos}[2020/05/06 Design Editorial LosAcademycos.com]%de babel y encoding se define antes de llamar paquete
+\RequirePackage{import, amsmath, amsfonts, amssymb, amsthm}%import matematicas
+\RequirePackage{yfonts, lmodern}%German fonts, computer modern font
+\RequirePackage{ragged2e}%alinear texto
+\RequirePackage{forloop}%No eliminar sirva para comandos sage
+\RequirePackage{calc} %calculos internos
+%-------------------------------------------
+% INICIO Imagenes, tikz
+%-------------------------------------------
+\RequirePackage{tikz}
+\usetikzlibrary{shadows.blur, shapes.symbols, babel, tikzmark}
+\RequirePackage{tikz-cd}
+\RequirePackage{wrapfig} %imagen entre texto
+\RequirePackage{float} %posicionamineto de imagenes
+\RequirePackage{graphics, graphicx, svg} %graficas, La ruta se definirá más adelante
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, theorems, breakable, raster, listings}%libreria de tcolorbox
+\RequirePackage{array, tabularx, colortbl}% tablas
+%-------------------------------------------
+% FIN Imagenes SVG, tikz
+%-------------------------------------------
+%-------------------------------------------
+% INICIO configuracion pagina
+%-------------------------------------------
+\RequirePackage[letterpaper]{geometry}
+%-------------------------------------------
+% FIN configuracion pagina
+%-------------------------------------------
+%-------------------------------------------
+% INICIO enlaces referencia
+%-------------------------------------------
+\usepackage{hyperref}
+%-------------------------------------------
+% FIN enlaces referencias
+%-------------------------------------------
+%-------------------------------------------
+% INICIO opciones
+%-------------------------------------------
+\RequirePackage{pgfopts}
+\newif{\ifsilence}
+\newif{\ifsage}
+\newif{\ifsagecommands}
+\newif{\ifpythontex}
+\newif{\ifanimation}
+\newif{\iflite}
+\newif{\ifwolfram}
+\newif{\ifwolframanimation}
+\silencetrue
+\pgfkeys{
+	/OPTIONS/.cd,
+	silencewarning/.is if=silence,
+	root/.initial= ../,
+	root/.get=\pathroot,
+	root/.store in=\pathroot,
+	roottemplates/.initial= \pathroot template/,
+	roottemplates/.get=\pathroottemplates,
+	roottemplates/.store in=\pathroottemplates,
+	template/.initial=empty,
+	template/.get=\nametemplate,
+	template/.store in=\nametemplate,
+	lite/.is if=lite,
+	rootplugins/.initial= \pathroot plugin/,
+	rootplugins/.get=\pathrootplugins,
+	rootplugins/.store in=\pathrootplugins,
+	enginedownload/.initial= curl,
+	enginedownload/.get=\enginelibdownload,
+	enginedownload/.store in=\enginelibdownload,
+	host/.initial=http://project.losacademycos.com/appl/latex/security/,
+	host/.get=\hostprimary,
+	host/.store in=\hostprimary,
+	textwidth/.initial=390pt,
+	textwidth/.get=\textwidthvalue,
+	textwidth/.store in=\textwidthvalue,
+	pythontex/.is if=pythontex,
+	sage/.is if=sage,
+	sageroot/.initial=\pathroot lib/sage/,
+	sageroot/.get=\sagepathroot,
+	sageroot/.store in=\sagepathroot,
+	sagenamesty/.initial=sagetex3.2,
+	sagenamesty/.get=\sagenameversion,
+	sagenamesty/.store in=\sagenameversion,
+	sagecommands/.is if=sagecommands,
+	wolfram/.is if=wolfram,
+	wolframanimation/.is if=wolframanimation,
+	animation/.is if=animation,
+}
+
+\ProcessPgfPackageOptions{/OPTIONS}
+\geometry{textwidth=\textwidthvalue}
+\geometry{headheight=15pt}
+\newcommand{\printtemplate}{\nametemplate}
+\newcommand{\pathtemplate}{\pathroottemplates\nametemplate}
+%\pgfqkeys{/OPTIONS}{#1}
+%-------------------------------------------
+% INICIO silenciar advertencias
+%-------------------------------------------
+\ifsilence
+	\RequirePackage{silence}%Disable all warnings issued by latex starting with "You have..."
+	\WarningFilter{latex}{You have requested package}
+	\pdfsuppresswarningpagegroup=1 %silencia PDF inclusion: multiple pdfs with page group included in a single page>]
+\fi	
+%-------------------------------------------
+% FIN silenciar advertencias
+%-------------------------------------------
+%-------------------------------------------
+% INICIO update
+%-------------------------------------------
+\RequirePackage[engine=\enginelibdownload]{\pathroot lib/download}
+\newcommand{\installAcademycosFiles}[3]{%1 ruta, 2 nombre, 3 extension 
+	\download[#1#2.#3]{\hostprimary #2.#3}%\pathtemplate/lib/ [ruta de instalacion]{url}
+}
+\RequirePackage{shellesc}
+\RequirePackage{ifplatform}
+%-------------------------------------------
+% FIN update
+%-------------------------------------------
+%-------------------------------------------
+% INICIO rutas graficas
+%-------------------------------------------
+%-------------Ruta imagenes-----------------
+\graphicspath{{./images/}, {./\pathtemplate/images/}}
+%-------------------------------------------
+% FIN rutas graficas
+%-------------------------------------------
+%-------------------------------------------
+% INICIO Comandos, programacion y estilos TCB
+%-------------------------------------------
+\RequirePackage{\pathroot lib/designAcademycosProgramming}
+\RequirePackage{\pathroot lib/designAcademycosCommands}
+\RequirePackage{\pathroot lib/tcb/stylesTCB}
+%-------------------------------------------
+% FIN Comandos, programacion y estilos TCB
+%-------------------------------------------
+\ifthenelse{\equal{\nametemplate}{empty}}
+	{%
+		\PackageWarning{designAcademycos}{No template has been loaded}
+	}%
+	{
+	\iflite	
+		\IfFileExists{\pathtemplate/loadLite.sty}{%
+			\RequirePackage{\pathtemplate/loadLite}
+		}{%
+			\PackageError{designAcademycos}{The template {\printtemplate} do not have lite version}
+		}	
+	\else
+		%-------------------------------------------
+		% INICIO cargar template
+		%-------------------------------------------
+		\IfFileExists{\pathtemplate/load.sty}{%
+			\RequirePackage{\pathtemplate/load}
+		}{%
+			\PackageError{designAcademycos}{There is not template \printtemplate\space in roottemplate}
+		}
+		%-------------------------------------------
+		% FIN cargar template
+		%-------------------------------------------
+	\fi
+	}%	
+\ifwolframanimation
+	\wolframtrue
+	\animationtrue
+	\RequirePackage{\pathroot lib/wolfram/commandsAnimations}	
+\fi
+\ifwolfram
+	\RequirePackage[nocache]{\pathroot lib/wolfram/latexalpha2v1.0}
+	\PackageWarning{designAcademycos}{The option wolfram, wolframanimation work only on systems unix-like}
+\fi
+\ifanimation
+	\RequirePackage{animate}%animaciones
+	\newcommand{\panimate}[2]{#2}
+\else 
+	\newcommand{\panimate}[2]{#1}
+\fi
+\ifsage
+	\RequirePackage{\sagepathroot\sagenameversion}
+	\ifsagecommands
+		\RequirePackage{\sagepathroot sageCommands}
+	\fi
+\fi
+\ifpythontex
+	\RequirePackage{pythontex}
+\fi
+%-------------------------------------------
+% FIN opciones
+%-------------------------------------------
+%-------------------------------------------
+% INICIO Variables principales
+%-------------------------------------------
+\makeatletter
+	\DeclareRobustCommand{\printauthor}{{\@author}}
+	\DeclareRobustCommand{\printtitle}{{\@title}}
+	\DeclareRobustCommand{\printversion}{{10.1}}
+\makeatother
+%-------------------------------------------
+% FIN Variables principales
+%-------------------------------------------
+\spanishdecimal{.}
+\setlength{\JustifyingParindent}{0mm}

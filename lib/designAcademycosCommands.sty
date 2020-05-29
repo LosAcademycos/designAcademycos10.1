@@ -1,0 +1,59 @@
+%-------------------------------------------
+%Dedicatoria
+%-------------------------------------------¨
+\tcbset{
+	boxGeneralMessageStyle/.style={
+		flush right,
+		empty, 
+		width=8.5cm
+	}
+}
+\newenvironment{dedication}{
+	\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	\begin{tcolorbox}[boxGeneralMessageStyle]
+		\raggedright{\Large\textbf{Dedicatoria.}}\\
+	}{
+	\end{tcolorbox}
+	\vspace*{\stretch{3}}
+	\clearpage
+}
+\newenvironment{initialmessage}{
+	\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	\hfill
+	\begin{tcolorbox}[boxGeneralMessageStyle]
+	}{
+	\end{tcolorbox}
+	\vspace*{\stretch{3}}
+	\clearpage
+}
+%-------------------------------------------
+% INICIO Portada
+%-------------------------------------------
+% portada reemplazada por imagen .svg
+%contraportada 
+\newenvironment{coverpage}{
+	\noindent
+	\thispagestyle{empty}
+}{}
+\newenvironment{copyrightpage}{
+	\cleardoublepage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+}{\clearpage}
+%-------------------------------------------
+% FIN Portada
+%-------------------------------------------
+%-------------------------------------------
+% INICIO tcolorbox basica
+%-------------------------------------------
+\tcbset{
+	boxBasicStyle/.style={
+		breakable
+	}
+}	
+\newtcolorbox{boxbasic}[1][Nota]{boxBasicStyle, title={#1}}
+%-------------------------------------------
+% FIN tcolorbox basica
+%-------------------------------------------	

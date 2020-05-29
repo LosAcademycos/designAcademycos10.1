@@ -1,0 +1,41 @@
+\definecolor{basePatches2}{HTML}{0076e4}
+\colorlet{blueTCB}{basePatches2}
+\tcbset{
+	twoColumns/.style={
+		raster columns=2, 
+		raster equal height,
+		size=small, 
+	}
+}
+\tcbset{
+	transparent/.style={
+		frame hidden,
+		interior hidden,
+		title hidden,
+		enhanced jigsaw
+	}
+}
+\tcbset{
+	vCenter/.style={
+		valign=center
+	}
+}
+\tcbset{
+	hCenter/.style={
+		halign=center
+	}
+}
+%-----------------estilos tcolorbox----
+\tcbset{
+	boxBackgroundWhite/.style={
+		interior style={
+			top color= white,
+			bottom color= white,
+		}
+	}
+}
+\tcbset{
+	lineBorderBox/.style={
+		borderline={0.1mm}{0mm}{blueTCB},
+	}
+}
