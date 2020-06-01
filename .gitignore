@@ -1,9 +1,9 @@
 documents
 *.log
-*.log
 *.aux
 *.dvi
 *.lof
+*.log
 *.lot
 *.bit
 *.idx
@@ -18,4 +18,11 @@ documents
 *.fdb_latexmk
 *.fls
 *.gz
+*.tmp
 *.listing
+*main.sagetex.sage
+*_minted-main
+*svg-inkscape
+*main.pdf
+*main.mw
+template/bookES
