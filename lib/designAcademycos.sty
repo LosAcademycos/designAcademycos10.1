@@ -205,11 +205,12 @@
 \makeatletter
 	\DeclareRobustCommand{\printauthor}{{\@author}}
 	\DeclareRobustCommand{\printtitle}{{\@title}}
+	\DeclareRobustCommand{\printpackagenameda}{{designAcademycos}}
 	\DeclareRobustCommand{\printversion}{{10.1}}
 	\DeclareRobustCommand{\printkeyname}{{Milky Way}}
+	\DeclareRobustCommand{\printproject}{{\printpackagenameda\space\printversion}}
+	\DeclareRobustCommand{\printprojectgit}{{\printpackagenameda\printversion}}
 \makeatother
 %-------------------------------------------
 % FIN Variables principales
 %-------------------------------------------
-%\spanishdecimal{.}
-\setlength{\JustifyingParindent}{0mm}

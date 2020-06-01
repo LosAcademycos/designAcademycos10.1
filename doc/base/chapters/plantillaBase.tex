@@ -1,6 +1,6 @@
 {\justifying
 %\chapterimage{chapters/Galois.jpg}{4cm}
-\chapter{Design Editorial (plantilla base)}\label{cap:designEditorial}
+\chapter{Documentación (plantilla base)}\label{cap:designEditorial}
 %	\epigraph{\comillas{Algunos misterios siempre escaparán a la mente humana. Para convencernos de ello, sólo hay que echar un vistazo a las tablas de los números primos, y ver que no reina ni orden, ni reglas}}{--- \textup{Évariste Galois}}
 	La base de la plantilla son los paquetes necesarios para crear diversos tipos de documentos, desde libros, revistas, artículos básicos etc, basándose en la siguiente estructura general
 	\begin{figure}[H]
@@ -10,7 +10,7 @@
 		\label{fig:estructuraPlantillaBaseGeneral}
 	\end{figure}
 	\section{Opciones}
-	El paquete desingAcademycos tiene las siguientes opciones
+	El paquete \printproject\space tiene las siguientes opciones
 	\begin{enumerate}
 		\item \textbf{silencewarning}. Esta opción silencia las advertencias de la plantilla base, su valor por defecto es \textbf{true}.
 		\item \textbf{root}. Es la ruta de plantilla base la cual se guarda en la variable \verb|\pathroot| y su valor por defecto es \textbf{../}
@@ -154,10 +154,10 @@
 	\subsection{Paquete latexalpha2}
 	Se recomienda leer cuidadosamente la documentación original en \href{https://www.ctan.org/pkg/latexalpha2}{ctan}. Recuerde que debe tener instalado Wolfram mathematica que tiene en su instalación wolframScript.
 	\section{Estructura de carpetas} 
-	Un gran documento debe tener cualidades desde orden en su código y por supuesto organización en sus carpetas, pensando en ello el paquete DesignEditorial\printversion recomienda la siguiente estructura
+	Un gran documento debe tener cualidades desde orden en su código y por supuesto organización en sus carpetas, pensando en ello el paquete \printproject\space recomienda la siguiente estructura
 	\begin{figure}[H]
 		\dirtree{%
-			.1 {\color{treeDefault}\faFolder} DesignEditorial\printversion.
+			.1 {\color{treeDefault}\faFolder} \printprojectgit.
 			.2 {\color{treeDefault}\faFolder} lib.
 			.3 {\color{treeDefault}\faFolder} sage.
 			.4 {\color{treeDefault}\faFileCodeO} sageCommands.sty.
@@ -174,13 +174,13 @@
 		\label{fig:estructuraCarpetasBase}
 	\end{figure}
 	\section{Reestructuración de carpetas}
-	La estructura de carpetas esta enfocada en el trabajo colaborativo por git y github donde DesignEditorial\printversion\space es un submodulo. Por ejemplo, supongamos que debes realizar tu trabajo de grado, donde debes realizar el escrito de tu tesis, un poster, una presentación, un articulo resumido para publicar (claro las revistas manejan su propia plantilla) y además estas realizando unas notas de clases en relación a tu tesis.\pap
+	La estructura de carpetas esta enfocada en el trabajo colaborativo por git y github donde \printprojectgit\space es un submodulo. Por ejemplo, supongamos que debes realizar tu trabajo de grado, donde debes realizar el escrito de tu tesis, un poster, una presentación, un articulo resumido para publicar (claro las revistas manejan su propia plantilla) y además estas realizando unas notas de clases en relación a tu tesis.\pap
 	Por lo que puedes tener varias opciones, la primera es tener un repositorio privado en github para cada uno de tus proyectos ó tener un repositorio privado para todos tus proyectos, en efecto tendríamos la siguiente estructura.
 	\begin{figure}[H]
 		\dirtree{%
 			.1 {\color{treeDefault}\faFolder} CopiaDeRepositorio.
 			.2 {\color{treeDefault}\faFolder} Articulo.
-			.2 {\color{treeDefault}\faFolder} DesignEditorial\printversion\space (submodulo git).
+			.2 {\color{treeDefault}\faFolder} \printprojectgit\space (submodulo git).
 			.2 {\color{treeDefault}\faFolder} NotasDeClase.
 			.2 {\color{treeDefault}\faFolder} Poster.
 			.2 {\color{treeDefault}\faFolder} Presentación.
@@ -189,13 +189,13 @@
 		\caption{Ejemplo 1}
 		\label{fig:EstructuraEjemplo1}
 	\end{figure}
-	Al realizar todos tus trabajos podemos observar que la filosofía DesignEditorial es tener una base común y un template diferente, claramente todos tus trabajos están relacionados de alguna forma por lo que cada proyecto carga un template diferente en el archivo <folder>/main.tex.\pap
-	Puede pasar que la estructura presentada no se ajuste a las necesidades del autor, por tanto es posible reordenar las carpetas lib, plugin y templete, por ejemplo, algún template en fase beta, aunque puede ser estable no implica que se encuentre en el submodulo DesignEditorial\printversion\space, así que siguiendo la suposición del ejemplo anterior deberíamos tener la siguiente estructura
+	Al realizar todos tus trabajos podemos observar que la filosofía \printproject\space es tener una base común y un template diferente, claramente todos tus trabajos están relacionados de alguna forma por lo que cada proyecto carga un template diferente en el archivo <folder>/main.tex.\pap
+	Puede pasar que la estructura presentada no se ajuste a las necesidades del autor, por tanto es posible reordenar las carpetas lib, plugin y templete, por ejemplo, algún template en fase beta, aunque puede ser estable no implica que se encuentre en el submodulo \printproject\space, así que siguiendo la suposición del ejemplo anterior deberíamos tener la siguiente estructura
 	\begin{figure}[H]
 		\dirtree{%
 			.1 {\color{treeDefault}\faFolder} CopiaDeRepositorio.
 			.2 {\color{treeDefault}\faFolder} Articulo.
-			.2 {\color{treeDefault}\faFolder} DesignEditorial\printversion\space (submodulo git).
+			.2 {\color{treeDefault}\faFolder} \printprojectgit\space (submodulo git).
 			.2 {\color{treeDefault}\faFolder} NotasDeClase.
 			.2 {\color{treeDefault}\faFolder} Poster.
 			.3 {\color{treeDefault}\faFileCodeO} main.tex.
@@ -207,12 +207,12 @@
 		\caption{Ejemplo 2}
 		\label{fig:EstructuraEjemplo2}
 	\end{figure}
-	Si suponemos que archivo Poster/main.tex usará templateFaseBeta deberá usar la opción \textbf{roottemplates=../template/} y \textbf{template=templateFaseBeta}. Aunque realicemos estos cambios no debemos quitar la carpeta \textbf{DesignEditorial\printversion/template/} ya que es un submodulo git.
+	Si suponemos que archivo Poster/main.tex usará templateFaseBeta deberá usar la opción \textbf{roottemplates=../template/} y \textbf{template=templateFaseBeta}. Aunque realicemos estos cambios no debemos quitar la carpeta \textbf{\printprojectgit/template/} ya que es un submodulo git.
 	\begin{boxbasic}[Nota]
 		De forma similar se puede cambiar la ruta de los plugins con la opción rootplugins
 	\end{boxbasic}
 	\section{Developers}
-	Esta sección se enfoca en la creación de templates y plugins para el paquete DesignEditorial\printversion\space (plantilla base). Gran parte de los templates están basados en los paquetes de la plantilla base y finalmente veremos el enfoque de los plugins.
+	Esta sección se enfoca en la creación de templates y plugins para el paquete \printproject\space (plantilla base). Gran parte de los templates están basados en los paquetes de la plantilla base y finalmente veremos el enfoque de los plugins.
 	\begin{boxbasic}[Nota]
 		Por seguridad el template no puede contener ningún script escrito para pythontex o SAGE. Siempre que sea el caso se recomienda advertir al usuario del uso del paquete svg ya que este tiene una dependencia al programa InkScape. 
 	\end{boxbasic}
@@ -240,7 +240,7 @@
 	Las funciones de cada archivo y carpeta son las siguientes
 	\begin{enumerate}
 		\item \textbf{quickStart.zip (obligatorio)}. Este archivo contiene el código báscio para que el usuario pueda compilar dicho template.
-		\item \textbf{doc.pdf (obligatorio)}. Este documento contiene toda la documentación del template, dicha documentación debe ser escrita solo usando el paquete DesignEditorial\printversion\space (plantilla base) con plugins, es decir, sin usar ningún template y usando los plugins necesarios para su escritura (no es necesario adjuntar código).
+		\item \textbf{doc.pdf (obligatorio)}. Este documento contiene toda la documentación del template, dicha documentación debe ser escrita solo usando el paquete \printproject\space (plantilla base) con plugins, es decir, sin usar ningún template y usando los plugins necesarios para su escritura (no es necesario adjuntar código).
 		\item \textbf{example (obligatorio)}. En esta carpeta se debe encontrar todo el código de un ejemplo totalmente funcional más su respectivo pdf, lo más importante es mostrar las características del template como entornos, comandos y configuraciones adicionales. 
 		\item \textbf{images (obligatorio)}. Esta carpeta guardará todas las imágenes necesarias para el funcionamiento del template (puede ser carpeta opcional). Una vez el template este funcionando se agregará automáticamente la ruta de esta carpeta al comando \verb|\graphicspath|.
 		\item \textbf{lib}. Esta carpeta contiene todos los archivo .sty relacionados al template, por ejemplo, allí podría existir archivos tales como colors.sty, environment.sty etc (puede ser opcional).
@@ -249,7 +249,7 @@
 		\item \textbf{loadOptions.sty}. Este archivo contiene las opciones del template, es un archivo opcional.
 	\end{enumerate}
 	\subsection{Plugins}
-	Los plugins son una parte fundamental a la hora de complementar nuestros trabajos, por ejemplo, en un libro queremos proponer ejercicios al lector y que al final tengan respuestas o sugerencias, claramente no puede pertenecer directamente al paquete DesignEditorial\printversion\space o algún template. \pap La filosofía de los plugins son complementos que cumplen una función particular, y solo dependen la plantilla base, pero lo recomendable es que puedan adaptarse a cualquier template.
+	Los plugins son una parte fundamental a la hora de complementar nuestros trabajos, por ejemplo, en un libro queremos proponer ejercicios al lector y que al final tengan respuestas o sugerencias, claramente no puede pertenecer directamente al paquete \printproject\space o algún template. \pap La filosofía de los plugins son complementos que cumplen una función particular, y solo dependen la plantilla base, pero lo recomendable es que puedan adaptarse a cualquier template.
 %	\section{Versión Lite}
 %		La versión lite depende del template cargado, si es cargada esta versión y no existe en el template ´la plantilla base genera un error y no compila.
 }
