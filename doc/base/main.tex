@@ -9,6 +9,7 @@
 	wolframanimation=true, 
 	enginedownload=wget, 
 	sagenamesty=sagetex3.2,
+	pythontex=true,
 	template=empty
 }
 %\datemplate{
@@ -28,17 +29,20 @@
 \tcbuselibrary{documentation}
 \RequirePackage{lipsum}
 \begin{document}
+%	\animationswolframclean
 	\frontmatter
 		\tableofcontents
 		\import{src/}{beginning.tex} 
 	\mainmatter
 %	\includesvg{\pathtemplate/images/svg/cover.svg}
 	\import{chapters/}{plantillaBase.tex}
-%	\import{chapters/}{template.tex}
+	\import{chapters/}{template.tex}
 	\import{chapters/}{dependencias.tex}
 	\import{chapters/}{estandares.tex}
 	\import{chapters/}{animaciones.tex}
-	\import{chapters/}{milkyWay.tex}
+	\py{2 + 4**2}
+	\py{sys.version}
+%	\import{chapters/}{milkyWay.tex}
 	\end{document}
 \begin{comment}
 8.3 no compatible con windows no se ha implementado http://ctan.uniminuto.edu/macros/latex/contrib/minted/minted.pdf

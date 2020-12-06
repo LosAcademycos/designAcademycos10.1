@@ -131,8 +131,9 @@
 	% INICIO update
 	%-------------------------------------------
 	\RequirePackage[engine=\enginelibdownload]{\pathroot lib/download}
-	\newcommand{\hostfiles}[3]{%1 ruta, 2 nombre, 3 extension 
-		\download[#1#2.#3]{\hostprimary #2.#3}%\pathtemplate/lib/ [ruta de instalacion]{url}
+	\newcommand{\hostfiles}[4]{%1 ruta instalacion, 2 nombre, 3 carpeta de host, 4 extension 
+		\download[#1#3.#4]{\hostprimary #2/#3.#4}%
+		%\download[#1#2.#3]{\hostprimary #2.#3}%\pathtemplate/lib/ [ruta de instalacion]{url}
 	}
 	%-------------------------------------------
 	% FIN update

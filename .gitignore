@@ -1,5 +1,6 @@
 documents
 quickStart
+*pythontex-files-main
 *.log
 *.aux
 *.dvi
@@ -26,3 +27,4 @@ quickStart
 *svg-inkscape
 *main.pdf
 *main.mw
+*main.pytxcode
