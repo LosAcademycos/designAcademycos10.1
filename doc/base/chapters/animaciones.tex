@@ -36,19 +36,22 @@
 %	\end{myexam}
 	\section{Wolfram}
 	Desde Wolfram Mathematica podemos crear frames y se puede animar tal como el siguiente ejemplo, aquí usaremos la opción \textbf{wolframanimation} y el siguiente comando
+	
 	\begin{tcblisting}{boxlatex}
+		%------header after of begin{document}------------
+		\newcommand{\anisin}{sin}
+		\wolframanimation{Animate[Plot[Sin[3*x + a], {x, 0, 10}], {a, 0, 5}]}{images/png/animation/\anisin}
+		%--------------end header ------------------------
 		\panimate{
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.5]{png/animaciones/sin/frame-0.png}
+				\includegraphics[height=6cm]{png/animaciones/\anisin/frame-0.png}
 				\caption{Fija}
 			\end{figure}
 		}{
 			\begin{figure}[H]
 				\centering
-				\animationswolfram{
-					Animate[Plot[Sin[x + a], {x, 0, 10}], {a, 0, 5}]
-				}{sin}{7cm}
+				\boxanimation{6cm}{\anisin}
 				\caption{Animación con Wolfram}
 			\end{figure}
 		}
@@ -59,15 +62,13 @@
 		\panimate{
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=.5]{png/animaciones/sin/frame-0.png}
+				\includegraphics[height=6cm]{png/animaciones/\anisin/frame-0.png}
 				\caption{Fija}
 			\end{figure}
 		}{
 			\begin{figure}[H]
 				\centering
-				\animationswolfram{
-					Animate[Plot[Sin[x + a], {x, 0, 10}], {a, 0, 5}]
-				}{sin}{7cm}
+				\boxanimation{6cm}{\anisin}
 				\caption{Animación con Wolfram}
 			\end{figure}
 		}

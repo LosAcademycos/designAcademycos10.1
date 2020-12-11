@@ -22,9 +22,10 @@ quickStart
 *.gz
 *.tmp
 *.listing
-*main.sagetex.sage
+*main.sagetex.*
 *_minted-main
 *svg-inkscape
 *main.pdf
 *main.mw
 *main.pytxcode
+*

@@ -33,11 +33,33 @@
 		left=5mm,enhanced,
 	}
 }
+\tcbset{
+	lenPython/.style={
+		listing engine=minted,
+		minted language=python,
+		minted options={%
+			linenos,
+			breaklines,
+			autogobble,
+			fontsize=\small,
+			numbersep=2mm,
+			baselinestretch=1
+		},
+		left=5mm,
+		enhanced,
+	}
+}
 %-----caja highlighting-------
 \tcbset{
 	boxlatex/.style={
 		programmingStyle,
 		lenTex
+	}
+}
+\tcbset{
+	boxpython/.style={
+		programmingStyle,
+		lenPython
 	}
 }
 \tcbset{

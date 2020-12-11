@@ -8,7 +8,7 @@
 	root=\rootprefix, 
 	wolframanimation=true, 
 	enginedownload=wget, 
-	sagenamesty=sagetex3.2,
+	sagenamesty=sagetex3.4,
 	pythontex=true,
 	template=empty
 }
@@ -22,28 +22,33 @@
 \usepackage[light,math]{kurier}%http://www.tug.dk/FontCatalogue/
 \usepackage{src/ownCommands}
 \usepackage{src/initialVariables}%
-\usepackage{\pathrootplugins highlighting}%codigo high lighting si no funciona minted
+\usepackage{\pathrootplugins highlighting}%codigo highlighting
 \usepackage{\pathrootplugins marginsPrint}%plugins
 \usepackage{\pathrootplugins exercisesQuestionsAnswers}%plugins
 \usepackage{\pathrootplugins folderTree}%plugins
 \tcbuselibrary{documentation}
-\RequirePackage{lipsum}
+\usepackage{lipsum}
+\usepackage{booktabs}%por pythontex pandas
+	
 \begin{document}
+%----------Header programing--------------
+	\import{programming/python/}{dataScience.tex}
+	\import{programming/sage/}{matrix.tex}
+	\import{programming/mathematica/}{animations.tex}
 %	\animationswolframclean
+%-----------------------------------------
 	\frontmatter
 		\tableofcontents
 		\import{src/}{beginning.tex} 
 	\mainmatter
-%	\includesvg{\pathtemplate/images/svg/cover.svg}
 	\import{chapters/}{plantillaBase.tex}
-	\import{chapters/}{template.tex}
+%	\import{chapters/}{template.tex}
 	\import{chapters/}{dependencias.tex}
 	\import{chapters/}{estandares.tex}
 	\import{chapters/}{animaciones.tex}
-	\py{2 + 4**2}
-	\py{sys.version}
+	\import{chapters/}{programacion.tex}
 %	\import{chapters/}{milkyWay.tex}
-	\end{document}
+\end{document}
 \begin{comment}
 8.3 no compatible con windows no se ha implementado http://ctan.uniminuto.edu/macros/latex/contrib/minted/minted.pdf
 en windows instalar python mayor a 2.7.5 y instalar pip install Pygments tener en cuenta variables de entorno sd

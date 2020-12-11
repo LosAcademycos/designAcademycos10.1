@@ -178,7 +178,7 @@
 		\RequirePackage{\pathroot lib/wolfram/commandsAnimations}	
 	\fi
 	\ifwolfram
-		\RequirePackage[nocache]{\pathroot lib/wolfram/latexalpha2v1.0}
+		\RequirePackage[cache]{\pathroot lib/wolfram/latexalpha2v1.0}
 		\PackageWarning{designAcademycos}{The option wolfram, wolframanimation work only on systems unix-like}
 	\fi
 	\ifanimation
@@ -195,6 +195,15 @@
 	\fi
 	\ifpythontex
 		\RequirePackage{pythontex}
+		\newcommand{\includepythontex}[2]{
+			\IfFileExists{images/pythontex/#2}{
+				\includegraphics[#1]{pythontex/#2}
+			}{
+				\begin{center}
+					\textbf{IMAGEN PYTHON TEX Compilar de nuevo}
+				\end{center}
+			}
+		}
 	\fi
 }
 %-------------------------------------------
