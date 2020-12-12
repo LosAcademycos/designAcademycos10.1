@@ -12,9 +12,6 @@
 	pythontex=true,
 	template=empty
 }
-%\datemplate{
-%	theme=Nube
-%}
 \usepackage[spanish,activeacute]{babel}%idioma document
 \usepackage[T1]{fontenc}
 %\spanishdecimal{.}
@@ -29,13 +26,11 @@
 \tcbuselibrary{documentation}
 \usepackage{lipsum}
 \usepackage{booktabs}%por pythontex pandas
-	
 \begin{document}
 %----------Header programing--------------
 	\import{programming/python/}{dataScience.tex}
 	\import{programming/sage/}{matrix.tex}
-	\import{programming/mathematica/}{animations.tex}
-%	\animationswolframclean
+%	\import{programming/mathematica/}{animations.tex}
 %-----------------------------------------
 	\frontmatter
 		\tableofcontents
@@ -45,11 +40,7 @@
 %	\import{chapters/}{template.tex}
 	\import{chapters/}{dependencias.tex}
 	\import{chapters/}{estandares.tex}
-	\import{chapters/}{animaciones.tex}
-	\import{chapters/}{programacion.tex}
+%	\import{chapters/}{animaciones.tex}
+	\import{chapters/}{entornoDeDesarrollo.tex}
 %	\import{chapters/}{milkyWay.tex}
 \end{document}
-\begin{comment}
-8.3 no compatible con windows no se ha implementado http://ctan.uniminuto.edu/macros/latex/contrib/minted/minted.pdf
-en windows instalar python mayor a 2.7.5 y instalar pip install Pygments tener en cuenta variables de entorno sd
-\end{comment}
