@@ -179,7 +179,11 @@
 		\newcommand{\panimate}[2]{#1}
 	\fi
 	\ifsage
-		\RequirePackage{\sagepathroot\sagenameversion}
+		\ifthenelse{\equal{\sagenameversion}{local}}{
+			\RequirePackage{sagetex}
+		}{
+			\RequirePackage{\sagepathroot\sagenameversion}
+		}
 		\ifsagecommands
 			\RequirePackage{\sagepathroot sageCommands}
 		\fi
