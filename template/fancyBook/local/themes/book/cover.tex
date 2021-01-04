@@ -1,0 +1,28 @@
+\begin{coverpage}
+	\renewcommand{\thepage}{Cover}
+	\noindent
+	\IfFileExists{\pathtemplate/\compilefrom/themes/\namefoldertheme/cover.png}{
+		\AddToShipoutPicture*{
+			\put(0,0){
+				\includegraphics[scale=1]{\pathtemplate/\compilefrom/themes/\namefoldertheme/cover.png}
+			}
+		}
+	}{}
+	\checkdofor{printcontentcover}{
+		\printcontentcover
+	}{
+		\begin{tcolorbox}
+			There isn't def printcontentcover in src/initialVariable.sty
+		\end{tcolorbox}
+	}
+\end{coverpage}
+\ifcoverpagecontent
+\newpage\text{ }\thispagestyle{empty}\newpage 
+	\begin{coverpage}
+		\printcontentcoverpage
+	\end{coverpage}
+\fi
+\begin{copyrightpage}
+	\Large Copyright \textcopyright\ LosAcademycos todos los derechos reservados.
+\end{copyrightpage}		
+\newpage\text{ }\thispagestyle{empty}\newpage 
