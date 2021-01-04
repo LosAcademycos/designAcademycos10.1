@@ -16,14 +16,13 @@
 %-------------------------------------------
 % INICIO solución
 %-------------------------------------------
-\tcbset{
-	solutionStyle/.style={
-		enlarge top by=1pc,
-		blanker,
-		breakable,
-		fonttitle=\normalsize\bfseries,
-		coltitle=titleSolution
-	}
+\tcolorboxenvironment{solution}{%from lib/base/commands.sty
+	blanker,
+	breakable,
+	left=5mm,
+	before skip=10pt,
+	after skip=10pt,
+	borderline west={1mm}{0pt}{titleSolution}
 }
 %-------------------------------------------
 % FIN solución
