@@ -16,6 +16,7 @@
 %-------------------------------------------
 % INICIO solución
 %-------------------------------------------
+<<<<<<< HEAD
 \tcolorboxenvironment{solution}{%from lib/base/commands.sty
 	blanker,
 	breakable,
@@ -23,6 +24,16 @@
 	before skip=10pt,
 	after skip=10pt,
 	borderline west={1mm}{0pt}{titleSolution}
+=======
+\tcbset{
+	solutionStyle/.style={
+		enlarge top by=1pc,
+		blanker,
+		breakable,
+		fonttitle=\normalsize\bfseries,
+		coltitle=titleSolution
+	}
+>>>>>>> cdc7bdf (Se agregó template)
 }
 %-------------------------------------------
 % FIN solución

@@ -1,10 +1,18 @@
 \newif{\ifbibunits}
+<<<<<<< HEAD
 \newif{\ifnotindentall}
 \newif{\ifnumeralchapter}
 \newif{\ifcoverpagecontent}
 \newif{\ifindexmake}
 \numeralchaptertrue
 \notindentalltrue
+=======
+\newif{\ifnoindentall}
+\newif{\ifnumeralchapter}
+\newif{\ifcoverpagecontent}
+\numeralchaptertrue
+\noindentalltrue
+>>>>>>> cdc7bdf (Se agregó template)
 \coverpagecontenttrue
 \pgfkeys{	
 	/DATEMPLATE/.cd,
@@ -18,10 +26,16 @@
 	bibliographyStyle/.initial= abbrv,
 	bibliographyStyle/.get=\bibliographystyletemplate,
 	bibliographyStyle/.store in=\bibliographystyletemplate,
+<<<<<<< HEAD
 	notIndent/.is if=notindentall,
 	numeralChapter/.is if=numeralchapter,
 	coverpage/.is if=coverpagecontent,
 	indexMake/.is if=indexmake,
+=======
+	noindent/.is if=noindentall,
+	numeralchapter/.is if=numeralchapter,
+	coverpage/.is if=coverpagecontent,
+>>>>>>> cdc7bdf (Se agregó template)
 	theme/.initial= book,
 	theme/.get=\magazinetheme,
 	theme/.store in=\magazinetheme,
