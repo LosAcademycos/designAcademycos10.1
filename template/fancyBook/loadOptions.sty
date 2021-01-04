@@ -1,0 +1,26 @@
+\newif{\ifbibunits}
+\newif{\ifnoindentall}
+\newif{\ifnumeralchapter}
+\newif{\ifcoverpagecontent}
+\numeralchaptertrue
+\noindentalltrue
+\coverpagecontenttrue
+\pgfkeys{	
+	/DATEMPLATE/.cd,
+	compileFrom/.initial= local,
+	compileFrom/.get=\compilefrom,
+	compileFrom/.store in=\compilefrom,
+	bibunits/.is if=bibunits,
+	bibliographySource/.initial= references/unionBibliography,
+	bibliographySource/.get=\bibliographysrc,
+	bibliographySource/.store in=\bibliographysrc,
+	bibliographyStyle/.initial= abbrv,
+	bibliographyStyle/.get=\bibliographystyletemplate,
+	bibliographyStyle/.store in=\bibliographystyletemplate,
+	noindent/.is if=noindentall,
+	numeralchapter/.is if=numeralchapter,
+	coverpage/.is if=coverpagecontent,
+	theme/.initial= book,
+	theme/.get=\magazinetheme,
+	theme/.store in=\magazinetheme,
+}
