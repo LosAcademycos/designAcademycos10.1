@@ -5,7 +5,7 @@
 %-------INICIO configuraciones -------------
 %-------------------------------------------
 \geometry{letterpaper, textwidth=390pt}
-\ifnoindentall	
+\ifnotindentall	
 	\setlength{\JustifyingParindent}{0mm}
 \fi
 \newcommand{\installhostfiles}[4]{
@@ -78,3 +78,8 @@
 %---------------------------------------------------
 \RequirePackage{lettrine}
 \renewcommand{\LettrineTextFont}{\normalfont}
+%---------------------------------------------------
+\ifindexmake	
+	\RequirePackage{imakeidx}
+	\makeindex
+\fi

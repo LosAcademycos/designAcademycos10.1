@@ -1,9 +1,10 @@
 \newif{\ifbibunits}
-\newif{\ifnoindentall}
+\newif{\ifnotindentall}
 \newif{\ifnumeralchapter}
 \newif{\ifcoverpagecontent}
+\newif{\ifindexmake}
 \numeralchaptertrue
-\noindentalltrue
+\notindentalltrue
 \coverpagecontenttrue
 \pgfkeys{	
 	/DATEMPLATE/.cd,
@@ -17,9 +18,10 @@
 	bibliographyStyle/.initial= abbrv,
 	bibliographyStyle/.get=\bibliographystyletemplate,
 	bibliographyStyle/.store in=\bibliographystyletemplate,
-	noindent/.is if=noindentall,
-	numeralchapter/.is if=numeralchapter,
+	notIndent/.is if=notindentall,
+	numeralChapter/.is if=numeralchapter,
 	coverpage/.is if=coverpagecontent,
+	indexMake/.is if=indexmake,
 	theme/.initial= book,
 	theme/.get=\magazinetheme,
 	theme/.store in=\magazinetheme,
