@@ -8,9 +8,6 @@
 \ifnotindentall	
 	\setlength{\JustifyingParindent}{0mm}
 \fi
-\newcommand{\installhostfiles}[4]{
-	\download[#1#3.#4]{\hostprimary #2/#3.#4}%
-}
 \newcommand{\colorprovide}[2]{\providecolor{#1}{named}{#2}}
 %----------bibliografia----------------
 \ifbibunits	
@@ -36,7 +33,8 @@
 \ifthenelse{\equal{\compilefrom}{temp}}{
 	\def\namefoldertheme{themeDownload}%!important
 	\def\suffix@min{.min}%!important
-	\RequirePackage{\pathtemplate/install}
+	\hostfiles{\pathtemplate/temp/themes/\namefoldertheme/}{10.1/fancyBook/themes/\themetemplate}{install}{sty}
+	\RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/install}
 	\ifwindows
 		\RequirePackage{xstring}
 		\StrSubstitute{\pathtemplate}{/}{\\}[\temppaththeme]
@@ -55,7 +53,7 @@
 	\fi
 }{
 	\ifthenelse{\equal{\compilefrom}{local}}{
-		\def\namefoldertheme{\magazinetheme}%!important
+		\def\namefoldertheme{\themetemplate}%!important
 		\def\suffix@min{}
 	}{
 		\PackageWarning{designAcademycos}{There isn't folder compilefrom}

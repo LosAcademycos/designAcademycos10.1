@@ -1,5 +1,5 @@
+\renewcommand{\thepage}{Cover}
 \begin{coverpage}
-	\renewcommand{\thepage}{Cover}
 	\noindent
 	\IfFileExists{\pathtemplate/\compilefrom/themes/\namefoldertheme/cover.png}{
 		\AddToShipoutPicture*{
@@ -16,13 +16,3 @@
 		\end{tcolorbox}
 	}
 \end{coverpage}
-\ifcoverpagecontent
-\newpage\text{ }\thispagestyle{empty}\newpage 
-	\begin{coverpage}
-		\printcontentcoverpage
-	\end{coverpage}
-\fi
-\begin{copyrightpage}
-	\Large Copyright \textcopyright\ LosAcademycos todos los derechos reservados.
-\end{copyrightpage}		
-\newpage\text{ }\thispagestyle{empty}\newpage 
