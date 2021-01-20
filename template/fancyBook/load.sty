@@ -27,9 +27,9 @@
 \RequirePackage{fontawesome}
 \RequirePackage{eso-pic} %portada
 \RequirePackage{\pathroot lib/designAcademycosProgramming}
-\RequirePackage{\pathtemplate/lib/base/language}
-\RequirePackage{\pathtemplate/lib/base/stylesTCB10.1}
-\RequirePackage{\pathtemplate/lib/base/commands}
+\RequirePackage{\pathtemplate/base/language}
+\RequirePackage{\pathtemplate/base/stylesTCB10.1}
+\RequirePackage{\pathtemplate/base/commands}
 \ifthenelse{\equal{\compilefrom}{temp}}{
 	\def\namefoldertheme{themeDownload}%!important
 	\def\suffix@min{.min}%!important
@@ -60,14 +60,8 @@
 	}
 }
 %---------------------------------------------------
-\RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/colors}
-\RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/styleCover}
-\RequirePackage{\pathtemplate/\compilefrom/lib/chapter10.1\suffix@min}
-\RequirePackage{\pathtemplate/\compilefrom/lib/sectionAndHeader10.1\suffix@min}
-\RequirePackage{\pathtemplate/\compilefrom/lib/tableOfContent10.1\suffix@min}
-\RequirePackage{\pathtemplate/\compilefrom/lib/environmentsStyle10.1\suffix@min}
+\RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/load}
 %---------------------------------------------------
-\RequirePackage{\pathtemplate/lib/base/environmentsTCB10.1}
 \hypersetup{
 	colorlinks,
 	allcolors = referenceLink,
