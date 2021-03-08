@@ -1,16 +1,16 @@
 \DeclareRobustCommand{\versiontemplatemagazinestyleud}{1.0}
 \RequirePackage{\pathtemplate/loadOptions}
-\ProcessPgfOptions{/DATEMPLATE}	
+\ProcessPgfOptions{/DATEMPLATE}
 %-------------------------------------------
 %-------INICIO configuraciones -------------
 %-------------------------------------------
 \geometry{letterpaper, textwidth=390pt}
-\ifnotindentall	
+\ifnotindentall
 	\setlength{\JustifyingParindent}{0mm}
 \fi
 \newcommand{\colorprovide}[2]{\providecolor{#1}{named}{#2}}
 %----------bibliografia----------------
-\ifbibunits	
+\ifbibunits
 	\RequirePackage[sectionbib]{bibunits}
 	\defaultbibliographystyle{\bibliographystyletemplate}
 	\bibliographyunit[\chapter]
@@ -61,6 +61,7 @@
 }
 %---------------------------------------------------
 \RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/load}
+\RequirePackage{\pathtemplate/base/environmentsTCB10.1}
 %---------------------------------------------------
 \hypersetup{
 	colorlinks,
@@ -71,7 +72,7 @@
 \RequirePackage{lettrine}
 \renewcommand{\LettrineTextFont}{\normalfont}
 %---------------------------------------------------
-\ifindexmake	
+\ifindexmake
 	\RequirePackage{imakeidx}
 	\makeindex
 \fi

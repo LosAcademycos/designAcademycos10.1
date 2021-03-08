@@ -9,7 +9,7 @@
 	after skip=10pt,
 	borderline west={1mm}{0pt}{titleProof}
 }
-\renewcommand\qedsymbol{\textcolor{titleProof}{\openbox}} 
+\renewcommand\qedsymbol{\textcolor{titleProof}{\openbox}}
 %-------------------------------------------
 % FIN demostracion
 %-------------------------------------------
@@ -43,7 +43,7 @@
 				arc[start angle=180,end angle=0,radius=1mm];
 				\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,middle color=tcbcolback!80!black]
 				([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)[rounded corners=1mm]--
-				([xshift=1mm,yshift=-1mm]frame.north east)-- (frame.south east) -- (frame.south west)-- 
+				([xshift=1mm,yshift=-1mm]frame.north east)-- (frame.south east) -- (frame.south west)--
 				([xshift=-1mm,yshift=-1mm]frame.north west)[sharp corners]-- cycle;
 			},
 			interior engine=empty,
@@ -61,6 +61,7 @@
 %-------teoremas----------------------------
 \tcbset{
 	mythStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleTheoU,
 		interior style={
 			top color= backBoxContentTheoU,
@@ -74,6 +75,7 @@
 %------------------definicion---------------
 \tcbset{
 	mydefStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleDefU,
 		interior style={
 			top color= backBoxContentDefU,
@@ -87,6 +89,7 @@
 %---------corolario------------------------
 \tcbset{
 	mycorStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleCorU,
 		interior style={
 			top color= backBoxContentCorU,
@@ -100,6 +103,7 @@
 %------lema---------------------------------
 \tcbset{
 	mylemStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleLemU,
 		interior style={
 			top color= backBoxContentLemU,
@@ -113,6 +117,7 @@
 %------Proposition---------------------------------
 \tcbset{
 	myproposiStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleProposiU,
 		interior style={
 			top color= backBoxContentProposiU,
@@ -126,6 +131,7 @@
 %-------------observation-------------
 \tcbset{
 	myobservationStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleNotaU,
 		interior style={
 			top color= backBoxContentNotaU,
@@ -139,6 +145,7 @@
 %-----------------property-------------------
 \tcbset{
 	mypropStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitlePropU,
 		interior style={
 			top color= backBoxContentPropU,
@@ -173,19 +180,20 @@
 		vfill before first,
 		overlay unbroken={
 			\draw[lineExam,line width=0.02cm]
-			([xshift=-0.5pt]frame.south east)--(frame.south west); 
+			([xshift=-0.5pt]frame.south east)--(frame.south west);
 		},
 		overlay first={},
 		overlay middle={},
 		overlay last={
 			\draw[lineExam,line width=0.02cm]
-			([xshift=-0.5pt]frame.south east)--(frame.south west); 
+			([xshift=-0.5pt]frame.south east)--(frame.south west);
 		},
 	}
 }
 %-------------freebox-------------
 \tcbset{
 	myfreeboxStyle/.style={
+		generalStyle,
 		colbacktitle=backBoxTitleCajaU,
 		interior style={
 			top color= backBoxContentCajaU,
