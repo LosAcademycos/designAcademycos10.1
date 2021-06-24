@@ -10,6 +10,7 @@
 %-------------------------------------------
 % INICIO Imagenes, tikz
 %-------------------------------------------
+\RequirePackage[table]{xcolor}%important
 \RequirePackage{tikz}
 \usetikzlibrary{shadows.blur, shapes.symbols, babel, tikzmark}
 \RequirePackage{tikz-cd}
@@ -108,7 +109,7 @@
 		\pgfqkeys{/DATEMPLATE}{#1}
 	}{
 		\PackageError{designAcademycos - template}{There is not options for template \nametemplate}
-	}	
+	}
 }
 %-------------------------------------------
 % INICIO silenciar advertencias
@@ -116,18 +117,18 @@
 \ifsilence
 	\RequirePackage{silence}%Disable all warnings issued by latex starting with "You have..."
 	\WarningFilter{latex}{You have requested package}
-	\pdfsuppresswarningpagegroup=1 %silencia PDF inclusion: multiple pdfs with page group included in a single page>]
-\fi	
+	\pdfsuppresswarningpagegroup=1 %silent PDF inclusion: multiple pdfs with page group included in a single page>]
+\fi
 %-------------------------------------------
 % FIN silenciar advertencias
 %-------------------------------------------
-\AtEndPreamble{%gracias a etoolbox 
+\AtEndPreamble{%gracias a etoolbox
 	%-------------------------------------------
 	% INICIO update
 	%-------------------------------------------
 	\ifdownloadsty
 		\RequirePackage[engine=\engine@lib@download]{\pathroot lib/download}
-		\newcommand{\hostfiles}[4]{%1 ruta instalacion, 2 nombre, 3 carpeta de host, 4 extension 
+		\newcommand{\hostfiles}[4]{%1 ruta instalacion, 2 nombre, 3 carpeta de host, 4 extension
 			\download[#1#3.#4]{\hostprimary #2/#3.#4}%
 		}
 	\fi
@@ -148,12 +149,12 @@
 		}%
 		{
 		\appendtographicspath{{./\pathtemplate/images/}}
-		\iflite	
+		\iflite
 			\IfFileExists{\pathtemplate/loadLite.sty}{%
 				\RequirePackage{\pathtemplate/loadLite}
 			}{%
 				\PackageError{designAcademycos}{The template {\printtemplate} do not have lite version}
-			}	
+			}
 		\else
 			%-------------------------------------------
 			% INICIO cargar template
@@ -167,11 +168,11 @@
 			% FIN cargar template
 			%-------------------------------------------
 		\fi
-		}%	
+		}%
 	\ifwolframanimation
 		\wolframtrue
 		\animationtrue
-		\RequirePackage{\pathroot lib/wolfram/commandsAnimations}	
+		\RequirePackage{\pathroot lib/wolfram/commandsAnimations}
 	\fi
 	\ifwolfram
 		\RequirePackage[cache]{\pathroot lib/wolfram/latexalpha2v1.0}
@@ -180,7 +181,7 @@
 	\ifanimation
 		\RequirePackage{animate}%animaciones
 		\newcommand{\panimate}[2]{#2}
-	\else 
+	\else
 		\newcommand{\panimate}[2]{#1}
 	\fi
 	\ifsage
