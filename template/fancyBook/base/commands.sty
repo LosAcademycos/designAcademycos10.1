@@ -34,16 +34,20 @@
 }
 \newenvironment{infoauthorarticlebox}{
 	\begin{tcolorbox}[dataSheetStyle]
-	}{  
+	}{
 	\end{tcolorbox}
 }
-\newcommand{\infoauthorarticle}[3]{
+\newcommand{\infoauthorarticle}[4]{
 	\begin{infoauthorarticlebox}
 		\faPencil\hspace{5pt} #1\\
-		\faAt\hspace{9pt}\href{mailto:#2}{#2}\\
+		\faAt\hspace{5pt} \href{mailto:#2}{#2}\\
 		\faUniversity\hspace{2pt} #3
 		\tcblower
-		\tcbincludegraphics[transparent, marginsInteriorNull, graphics options={width=2cm}]{\pathtemplate/images/png/user.png}
+		\begin{center}
+			\begin{tikzpicture}
+				\node[#4]{};
+			\end{tikzpicture}
+		\end{center}
 	\end{infoauthorarticlebox}
 }
 \newenvironment{abstract}{
