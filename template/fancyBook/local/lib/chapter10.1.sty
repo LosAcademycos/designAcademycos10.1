@@ -31,7 +31,6 @@
 \tcbset{
     chapterBannerStyle/.style={
         enhanced, 
-%        valign=center, 
         borderline south={3pt}{0pt}{fondolineCap}, 
         spread upwards, 
         height=7cm, 
@@ -88,9 +87,9 @@
     \begin{tcolorbox}[chapterBannerStyle, chapterBannerImagenStyle]
 		\begin{tcolorbox}[contentChapterStyle]
 			\begin{tcolorbox}[titleChapterStyle]
-			{\ifthenelse{\equal{\thechapter}{\theTempChapter}}%
-				{	\pagestyle{empty}
-					\begin{tcolorbox}[width=\maximumtextwidth-\lagtext,halign=left,empty]
+				\ifthenelse{\boolean{booleanActiveAppendix}}{
+					\pagestyle{empty}
+					\begin{tcolorbox}[width=\maximumtextwidth-\lagtext, halign=left, empty]
 						{\fontsize{30}{10}\bfseries\color{tituloCap}
 						\ifnumeralchapter
 							\thechapter.\space
@@ -98,11 +97,23 @@
 						#1
 						}
 					\end{tcolorbox}
+				}{
+					\ifthenelse{\equal{\thechapter}{\theTempChapter}}%
+					{	
+						\pagestyle{empty}
+						\begin{tcolorbox}[width=\maximumtextwidth-\lagtext, halign=left, empty]
+							{\fontsize{30}{10}\bfseries\color{tituloCap}
+							\ifnumeralchapter
+								\thechapter.\space
+							\fi
+							#1
+							}
+						\end{tcolorbox}
+					}
+					{}
 				}
-				{}%correccion titulos \chapter*
-			}
 			\end{tcolorbox}
-			{\ifthenelse{\boolean{authorExist}}%
+			\ifthenelse{\boolean{authorExist}}%
 				{
 				\vspace{-1.0cm}
 					\begin{tcolorbox}[marginsInteriorNull, halign=right, empty]
@@ -112,25 +123,30 @@
 						\end{tcolorbox}
 				\end{tcolorbox}
 				}
-				{}
-			}		
+				{}		
     	\end{tcolorbox}
 	\vspace{-1.5cm}
 	\begin{tcolorbox}[center, width=\maximumtextwidth-\lagtext, empty]
 			\@chapterimage
 	\end{tcolorbox}
 \end{tcolorbox}
-\setcounter{TempChapter}{\thechapter}%correccion titulos \chapter*
+\ifthenelse{\boolean{booleanActiveAppendix}}{}{
+	\setcounter{TempChapter}{\thechapter}%correccion titulos \chapter*
+}
 }{0cm}{
-	{\ifthenelse{\equal{\thechapter}{\theTempChapter}}%
-        {}{
-        	\begin{center}
-        		\fontsize{28}{20}\selectfont\color{titleCapDefault}#1
-        	\end{center}
-      	}%correccion titulos \chapter*
-    }
+	\ifthenelse{\boolean{booleanActiveAppendix}}{}
+	{
+		\ifthenelse{\equal{\thechapter}{\theTempChapter}}%
+		{}{
+			\begin{center}
+				\fontsize{28}{20}\selectfont\color{titleCapDefault}#1
+			\end{center}
+		}%correccion titulos \chapter*
+  }
 }[
-	\stepcounter{TempChapter}%correccion titulos \chapter*
+	\ifthenelse{\boolean{booleanActiveAppendix}}{}{
+		\stepcounter{TempChapter}%correccion titulos \chapter*
+	}
 ]
 \titlespacing*{\chapter}{0pt}{0pt}{0cm}
 %-------------------------------------------

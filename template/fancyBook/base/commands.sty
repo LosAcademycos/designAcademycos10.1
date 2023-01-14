@@ -9,6 +9,11 @@
 	\fi%
 }
 %------------------------------------
+\newboolean{booleanActiveAppendix}
+\let\@typeappendix\relax
+\newcommand\typeappendix[1]{%
+	\setboolean{booleanActiveAppendix}{#1}
+}
 \newboolean{authorExist}
 \let\@chapterauthor\relax
 \newcommand\chapterauthor[1]{%
@@ -31,6 +36,7 @@
 \newcommand\cleanalldata{
 	\nochapterimage
 	\nochapterauthor
+	\typeappendix{false}
 }
 \newenvironment{infoauthorarticlebox}{
 	\begin{tcolorbox}[dataSheetStyle]
